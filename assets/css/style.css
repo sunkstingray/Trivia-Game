@@ -1,0 +1,38 @@
+body {
+	background-image: url(../images/bg.jpg);
+	background-position: center;
+	font-family: 'Rancho', cursive;
+	font-size: 30px;
+}
+
+.jumbotron {
+	background-image: url(../images/castle.jpg);
+	background-position: right;
+	margin-top: 20px;
+	box-shadow: 5px 5px 10px;
+}
+
+.jumbotron h1{
+	font-size:80px;
+}
+
+h3 {
+	font-size: 40px
+}
+
+.panel {
+	box-shadow: 5px 5px 10px;
+}
+
+.btn {
+	font-size: 30px;
+}
+
+.btn-block {
+	margin: 10px 20px;
+	width: 97%;
+}
+
+.reset {
+	display: none;
+}
