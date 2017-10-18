@@ -8,6 +8,7 @@ var radioButton;
 var selectedAnswer;
 var rightCount = 0;
 var wrongCount = 0;
+var timeCount = 0;
 
 
 
@@ -53,7 +54,7 @@ var trivaQuestions =
 		{
 			question: "What is the name of Mulan’s pet dragon?",
 			choices: ["Mushu", "Li Shang", "Huns", "Fa Zhou"],
-			answer: 3,
+			answer: 0,
 			gif: "assets/images/mushu.gif"
 		},
 
@@ -69,12 +70,38 @@ var trivaQuestions =
 			choices: ["Prince Caspian", "Prince Charming", "Prince Eric", "Prince John"],
 			answer: 2,
 			gif: "assets/images/eric.gif"
+		},
+
+		{
+			question: "What are the names of the three fairies in the Disney classic Sleeping Beauty?",
+			choices: ["Flo, Jo, and Stephanie", "Flora, Fauna and Merryweather", "Humble, Bumble, and Jolly", "Merry, Ferry, and Constance"],
+			answer: 1,
+			gif: "assets/images/sleeping.gif"
+		},
+
+		{
+			question: "What is the name of Mickey Mouse´s dog?",
+			choices: ["Pluto", "Spot", "Fluffy", "George"],
+			answer: 0,
+			gif: "assets/images/pluto.gif"
 		}
 
 
 	];
 
 
+
+// Function to show start button
+
+function startButton() {
+
+	$("#time").html("Click the button below to start playing!");
+	
+	$(".start").on("click", function(){
+	startQuiz();
+});
+
+}
 
 // Function to start the trivia quiz
 
@@ -142,7 +169,7 @@ function decrement() {
 		$("#time").html("Time is up! The correct answer was: "+q.choices[q.answer]);
 		$("#question").html("<img src = '"+q.gif+"'>");
 		stop();
-		wrongCount++;
+		timeCount++;
 	}
 }
 
@@ -189,7 +216,7 @@ function checkAnswer(){
 
 function quizOver(){
 	$("#time").html("Let's see how you've done...");
-	$("#question").html("<div>Right Answers: "+rightCount+"</div><div>Wrong Answers: "+wrongCount+"</div><div><img src='assets/images/ProfessorOwl-sm.gif'></div>");
+	$("#question").html("<div>Right Answers: "+rightCount+"</div><div>Wrong Answers: "+wrongCount+"</div><div>Questions that timed out: "+timeCount+"</div><div><img src='assets/images/ProfessorOwl-sm.gif'></div>");
 	$(".reset").show();
 }
 
@@ -197,9 +224,12 @@ function quizOver(){
 
 // Click listener for the button to restart the quiz
 
-$("button").on("click", function(){
+$(".reset").on("click", function(){
 	number = 30;
 	counter = -1;
+	rightCount = 0;
+	wrongCount = 0;
+	timeCount = 0;
 	startQuiz();
 });
 
@@ -207,4 +237,4 @@ $("button").on("click", function(){
 
 // Calling the function to start the quiz
 
-startQuiz();
+startButton();
