@@ -235,6 +235,6 @@ $(".reset").on("click", function(){
 
 
 
-// Calling the function to start the quiz
+// Calling the function to listen for the button to start the quiz
 
 startButton();
